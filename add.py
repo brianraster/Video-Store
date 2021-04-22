@@ -7,7 +7,7 @@ def addData():
     item = {}
     temp = dataMgr.loadData('data.json')
     item['title'] = input('Enter the title of the film: ')
-    item['length'] = input(f'Enter {item["title"]}\'s length in minutes: ')
+    item['length'] = int(input(f'Enter {item["title"]}\'s length in minutes: '))
     item['rating'] = input(f'Enter {item["title"]}\'s rating: ')
     # need to verify next 2 lines and learn more RegEx
     # if not re.match('[gG][pg][PG][pg\-13][PG\-13][rR]', item['rating']):
