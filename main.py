@@ -19,7 +19,7 @@ def main():
         elif usrchoice == '5':
             break
         else:
-            print('You did make a valid choice')
+            print('You did not make a valid choice')
             main()
 
 main()
