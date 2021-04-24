@@ -41,5 +41,4 @@ def addData():
             title = entry['title']
             if title == film:
                 entry['stock'] += 1
-        # temp.append(item)
         dataMgr.writeData('data.json', temp)

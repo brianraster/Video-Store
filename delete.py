@@ -7,14 +7,37 @@ def delete():
     newData = []
     temp = dataMgr.loadData('data.json')
     dataLen = len(temp) - 1
-    print("Which index would you like to delete?")
-    delOption = int(input(f'Select a number 0-{dataLen}: '))
-    i = 0
-    for entry in temp:
-        if i == delOption:
-            pass
-            i += 1
-        else:
-            newData.append(entry)
-            i += 1
-    dataMgr.writeData('data.json', newData)
+    print('Are you deleting:\n1. An entire film\'s stock\n2. A copy of a film')
+    choice = int(input(''))
+    if choice == 1:
+        print('-------------------- W A R N I N G: -------------------------\n'
+              ' This action will delete all the stock of the selected film.\n'
+              '           Are you sure you want to do this?')
+        yn = input('Y/N: ')
+        if yn == 'Y' or yn == 'y':
+            print("Which index would you like to delete?")
+            delOption = int(input(f'Select a number 0-{dataLen}: '))
+            i = 0
+            for entry in temp:
+                if i == delOption:
+                    pass
+                    i += 1
+                else:
+                    newData.append(entry)
+                    i += 1
+            dataMgr.writeData('data.json', newData)
+        if yn == 'N' or yn == 'n':
+            print('Going back to main menu.')
+    if choice == 2:
+        print('Which index are you removing a copy of?')
+        delOption = int(input(f'Select a number 0-{dataLen}: '))
+        i = 0
+        for entry in temp:
+            if i == delOption:
+                entry['stock'] -= 1
+                newData.append(entry)
+                i += 1
+            else:
+                newData.append(entry)
+                i += 1
+        dataMgr.writeData('data.json', newData)
