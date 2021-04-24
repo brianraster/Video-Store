@@ -2,6 +2,7 @@ import dataMgr
 import view
 
 def editData():
+    """Edit the data of a film already in the inventory"""
     view.viewData()
     newData = []
     temp = dataMgr.loadData('data.json')

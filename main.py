@@ -5,6 +5,7 @@ import delete
 import edit
 
 def main():
+    """The starting point function of the program"""
     while True:
         choice.choices()
         usrchoice = input("\nEnter Number: ")
@@ -19,7 +20,7 @@ def main():
         elif usrchoice == '5':
             break
         else:
-            print('You did not make a valid choice')
+            print('You did not make a valid choice, try again.')
             main()
 
 main()

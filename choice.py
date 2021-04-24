@@ -1,4 +1,5 @@
 def choices():
+    """The top level choices the user has to choose from"""
     print('Film Inventory Tracker')
     print('-----------------------\n')
     print('(1) View Film Inventory')

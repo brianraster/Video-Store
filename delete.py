@@ -2,15 +2,16 @@ import dataMgr
 import view
 
 def delete():
+    """Deletes a film from the inventory"""
     view.viewData()
     newData = []
     temp = dataMgr.loadData('data.json')
     dataLen = len(temp) - 1
     print("Which index would you like to delete?")
-    delOption = input(f'Select a number 0-{dataLen}: ')
+    delOption = int(input(f'Select a number 0-{dataLen}: '))
     i = 0
     for entry in temp:
-        if i == int(delOption):
+        if i == delOption:
             pass
             i += 1
         else:
