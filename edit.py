@@ -16,15 +16,18 @@ def editData():
             length = entry['length']
             rating = entry['rating']
             year = entry['year']
+            stock = entry['stock']
             print(f'Current title: {title}')
             newTitle = input('What is the new title? ')
             print(f'Current length: {length}')
-            newLen = input('What is the new length of the film? ')
+            newLen = int(input('What is the new length of the film? '))
             print(f'Current rating: {rating}')
             newRating = input('What is the new rating? ')
             print(f'Current year of release: {year}')
             newYear = input('What is the new year of release? ')
-            newData.append({'title': newTitle, 'length': newLen, 'rating': newRating, 'year': newYear})
+            print(f'How many copies of {title} are in stock?')
+            newStock = int(input(''))
+            newData.append({'title': newTitle, 'length': newLen, 'rating': newRating, 'year': newYear, 'stock': newStock})
             i += 1
         else:
             newData.append(entry)

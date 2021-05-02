@@ -17,7 +17,9 @@ def addData():
         if item['rating'] not in ratings:
             print("You did not enter a valid film rating, please re-enter the film's rating.")
             item['rating'] = input(f'Enter {item["title"]}\'s rating: ')
-
+            if item['rating'] not in ratings:
+                print('Selection is still not a valid rating. Try again')
+                addData()
         item['year'] = int(input(f'Enter the year {item["title"]} was released: '))
         if item['year'] < 1900:
             print(f'They weren\'t making movies in {item["year"]}.')

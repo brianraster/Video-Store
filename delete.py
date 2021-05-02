@@ -1,6 +1,36 @@
 import dataMgr
 import view
 
+# def stock0():
+#     # TODO: fix this code and have it not leave an empty bracket in data.json
+#     # -------- this operation leaves an empty object in the json file ----------
+#     # ------------------- need to figure out why and fix it --------------------
+#     if entry['stock'] <= 0:
+#         print(f"{entry['title']}'s stock is 0, would you like to delete the title?\nY/N?")
+#         usrch = input('')
+#         if usrch == 'Y' or usrch == 'y':
+#             for film in temp:
+#                 if i == delOption:
+#                     pass
+#                     i += 1
+#                 else:
+#                     newData.append(film)
+#                     i += 1
+#             # del entry           # does not delete the entry
+#             # del entry['title']
+#             # del entry['length']
+#             # del entry['rating']
+#             # del entry['year']
+#             # del entry['stock']
+#             # for object in temp:
+#             #     if object is None:
+#             #         pass
+#             #     else:
+#             #         newData.append(object)
+#         else:
+#             continue
+#     # --------------------------------------------------------------------
+
 def delete():
     """Deletes a film from the inventory"""
     view.viewData()
@@ -40,4 +70,5 @@ def delete():
             else:
                 newData.append(entry)
                 i += 1
+
         dataMgr.writeData('data.json', newData)
