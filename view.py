@@ -3,7 +3,8 @@ import dataMgr
 def viewData():
     """Prints out the current inventory to the screen"""
     temp = dataMgr.loadData('data.json')
-    i = 0
+    i = 1
+    print('\n')
     for entry in temp:
         title = entry['title']
         length = entry['length']

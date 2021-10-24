@@ -1,6 +1,7 @@
 import dataMgr
 import view
 
+
 # def stock0():
 #     # TODO: fix this code and have it not leave an empty bracket in data.json
 #     # -------- this operation leaves an empty object in the json file ----------
@@ -58,12 +59,16 @@ def delete():
             dataMgr.writeData('data.json', newData)
         if yn == 'N' or yn == 'n':
             print('Going back to main menu.')
+    # TODO: If deleting copy of film past 0, will move to negative numbers
     if choice == 2:
         print('Which index are you removing a copy of?')
         delOption = int(input(f'Select a number 0-{dataLen}: '))
         i = 0
         for entry in temp:
             if i == delOption:
+                if entry['stock'] == 1:
+                    pass
+                    i += 1
                 entry['stock'] -= 1
                 newData.append(entry)
                 i += 1
