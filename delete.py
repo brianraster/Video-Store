@@ -66,8 +66,8 @@ def delete():
         i = 0
         for entry in temp:
             if i == delOption:
-                if entry['stock'] == 1:
-                    pass
+                if entry['stock'] == 1:     # TODO: This does not throw an error, nor does it do what it should.
+                    pass                    # TODO: Figure out why.
                     i += 1
                 entry['stock'] -= 1
                 newData.append(entry)
