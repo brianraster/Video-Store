@@ -1,7 +1,7 @@
 import dataMgr
 
 def viewData():
-    """Prints out the current inventory to the screen"""
+    """Prints out the entire film inventory to the screen"""
     temp = dataMgr.loadData('data.json')
     i = 1
     print('\n')
