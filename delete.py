@@ -1,36 +1,18 @@
 import dataMgr
 import view
 
+def deleteStock(temp, delOption, newData):
+    """Deletes an entire films entry, regardless of number of copies in stock"""
+    i = 0
+    for entry in temp:
+        if i == delOption:
+            pass
+            i += 1
+        else:
+            newData.append(entry)
+            i += 1
+    dataMgr.writeData('data.json', newData)
 
-# def stock0():
-#     # TODO: fix this code and have it not leave an empty bracket in data.json
-#     # -------- this operation leaves an empty object in the json file ----------
-#     # ------------------- need to figure out why and fix it --------------------
-#     if entry['stock'] <= 0:
-#         print(f"{entry['title']}'s stock is 0, would you like to delete the title?\nY/N?")
-#         usrch = input('')
-#         if usrch == 'Y' or usrch == 'y':
-#             for film in temp:
-#                 if i == delOption:
-#                     pass
-#                     i += 1
-#                 else:
-#                     newData.append(film)
-#                     i += 1
-#             # del entry           # does not delete the entry
-#             # del entry['title']
-#             # del entry['length']
-#             # del entry['rating']
-#             # del entry['year']
-#             # del entry['stock']
-#             # for object in temp:
-#             #     if object is None:
-#             #         pass
-#             #     else:
-#             #         newData.append(object)
-#         else:
-#             continue
-#     # --------------------------------------------------------------------
 
 def delete():
     """Deletes a film from the inventory"""
@@ -48,30 +30,22 @@ def delete():
         if yn == 'Y' or yn == 'y':
             print("Which index would you like to delete?")
             delOption = int(input(f'Select a number 0-{dataLen}: '))
-            i = 0
-            for entry in temp:
-                if i == delOption:
-                    pass
-                    i += 1
-                else:
-                    newData.append(entry)
-                    i += 1
-            dataMgr.writeData('data.json', newData)
+            deleteStock(temp, delOption, newData)
         if yn == 'N' or yn == 'n':
             print('Going back to main menu.')
-    # TODO: If deleting copy of film past 0, will move to negative numbers
+
     if choice == 2:
         print('Which index are you removing a copy of?')
-        delOption = int(input(f'Select a number 0-{dataLen}: '))
+        delOption = int(input(f'Select a number 1-{dataLen + 1}: '))
         i = 0
         for entry in temp:
             if i == delOption:
-                if entry['stock'] == 1:     # TODO: This does not throw an error, nor does it do what it should.
-                    pass                    # TODO: Figure out why.
+                if entry['stock'] == 1:
+                    deleteStock(temp, delOption, newData)
+                else:
+                    entry['stock'] -= 1
+                    newData.append(entry)
                     i += 1
-                entry['stock'] -= 1
-                newData.append(entry)
-                i += 1
             else:
                 newData.append(entry)
                 i += 1
