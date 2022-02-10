@@ -2,6 +2,8 @@ import choice
 import view
 import add
 import delete
+import edit
+
 
 def main():
     """The starting point function of the program"""
